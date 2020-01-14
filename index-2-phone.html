@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Grocery List 2</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="reset.css">  <!--reset browser out of default-->
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+      /* http://meyerweb.com/eric/tools/css/reset/
+         v2.0 | 20110126
+         License: none (public domain)
+      */
+
+      html, body, div, span, applet, object, iframe,
+      h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+      a, abbr, acronym, address, big, cite, code,
+      del, dfn, em, img, ins, kbd, q, s, samp,
+      small, strike, strong, sub, sup, tt, var,
+      b, u, i, center,
+      dl, dt, dd, ol, ul, li,
+      fieldset, form, label, legend,
+      table, caption, tbody, tfoot, thead, tr, th, td,
+      article, aside, canvas, details, embed,
+      figure, figcaption, footer, header, hgroup,
+      menu, nav, output, ruby, section, summary,
+      time, mark, audio, video {
+      	margin: 0;
+      	padding: 0;
+      	border: 0;
+      	font-size: 100%;
+      	font: inherit;
+      	vertical-align: baseline;
+      }
+      /* HTML5 display-role reset for older browsers */
+      article, aside, details, figcaption, figure,
+      footer, header, hgroup, menu, nav, section {
+      	display: block;
+      }
+      body {
+      	line-height: 1;
+      }
+      ol, ul {
+      	list-style: none;
+      }
+      blockquote, q {
+      	quotes: none;
+      }
+      blockquote:before, blockquote:after,
+      q:before, q:after {
+      	content: '';
+      	content: none;
+      }
+      table {
+      	border-collapse: collapse;
+      	border-spacing: 0;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      /****
+      #00A4DB
+
+      **/
+      #top-section {
+        /*width: 100%;*/
+        background: url(https://www.californiabeaches.com/wp-content/uploads/2014/09/bigstock-PalmTreesSantaBarbaraBeach-1000x667.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        height: 525px;
+      }
+      #top-section h1 {
+        font-size: 80px;
+        padding-top: 50px;
+        text-align: center;
+        font-family: sans-serif;
+        font-weight: 100;
+        color: #FEFEFE;
+      }
+      #top-section .input-section {
+        width: 100%;
+        margin-top: 200px;
+      }
+      #top-section input {
+        /*margin-left: 355px;
+        margin-top: 150px;*/
+        margin: 0 30% 15px 30%;
+        border: none;
+        border-radius: 10px;
+        width: 40%;
+        height: 40px;
+        font-size: 25px;
+        background-color: #FEFEFE;
+      }
+      #top-section .button-section {
+        width: 100%;
+      }
+      #top-section button {
+        display: block;
+        /*margin-left: 480px;
+        margin-top: 10px;*/
+        border: none;
+        background-color: #FEFEFE;
+        width: 10%;
+        height: 30px;
+        border-radius: 10px;
+        margin: 0 45% 0 45%;
+      }
+      .addBtn:hover {
+        cursor: pointer;
+      }
+
+      /***list section***/
+      .list-container {
+        margin-top: 20px;
+      }
+      ul {
+        font-size: 20px;
+        display: block;
+        list-style-type: none;
+        color: #000000;
+      }
+      li {
+        border: 2px solid black;
+        margin-bottom: 10px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        text-align: left;
+        background: #ffffff;
+        transition: all 0.75s ease;
+        -webkit-transition: all 0.75s ease;
+        -moz-transition: all 0.75s ease;
+        -ms-transition: all 0.75s ease;
+        -o-transition: all 0.75 ease;
+        font-family: sans-serif;
+      }
+
+      /*List Delete button style*/
+      li > button {
+        float: right;
+        text-decoration: none;
+        border: none;
+        height: 30px;
+        width: 30%;
+        max-width: 35px;
+        position: relative;
+        top: -5px;
+        left: 10px;
+        background: #ffffff;
+        font-weight: bold;
+        font-size: 20px;
+        transition: all 0.75s ease;
+        -webkit-transition: all 0.75s ease;
+        -moz-transition: all 0.75s ease;
+        -ms-transition: all 0.75s ease;
+        -o-transition: all 0.75 ease;
+      }
+      li > button:hover {
+        cursor: pointer;
+        border: none;
+      }
+      ul li.checked button {
+        background-color: #00D6C0;
+      }
+      /* When clicked on, add a background color and strike out text */
+      ul li.checked {
+        background-color: #00D6C0;
+        color: #fff;
+        text-decoration: line-through;
+      }
+      /*delete list item style*/
+      .delete {
+      	display: none;
+      }
+
+
+      @media screen and (max-width: 767px) {
+        #top-section h1 {
+          font-size: 70px;
+        }
+        #top-section .input-section {
+          margin-top: 175px;
+        }
+        #top-section input {
+          width: 70%;
+          margin: 0 15% 15px 15%;
+          font-size: 20px;
+        }
+        #top-section button {
+          width: 30%;
+          margin: 0 35% 0 35%;
+        }
+        li > button {
+          height: 28px;
+          border: none;
+        }
+      }
+    </style>
+</head>
+
+<body>
+
+  <section id="top-section">
+    <div class="container">
+      <!--<img src="https://ak5.picdn.net/shutterstock/videos/3315995/thumb/1.jpg" alt="">-->
+        <h1>Grocery List</h1>
+        <div class="input-section">
+          <input type="text" id="userInput" maxlength="20" placeholder="New item..."/>
+        </div>
+        <div class="button-section">
+          <button onclick="addItems()" class="addBtn">Add Item</button>
+        </div>
+    </div>
+  </section>
+
+ <section>
+   <div class="container">
+     <div class="list-container">
+       <ul id="myList"></ul>
+     </div>
+   </div>
+ </section>
+
+<!--<script type="text/javascript" src="app.js"></script>-->
+<script type="text/javascript">
+
+  //List of Global variables
+  var enterButton = document.getElementById("addBtn");
+  var ul = document.querySelector("ul");
+  var input = document.getElementById("userInput");
+
+  // Add a "checked" symbol when clicking on a list item
+  var list = document.querySelector('ul');
+  list.addEventListener('click', function(ev) {
+    if (ev.target.tagName === 'LI') {
+      ev.target.classList.toggle('checked');
+    }
+  }, false);
+
+  //Everything outside of function is to be used within function..see below
+
+  //function to add list items
+  function addItems() {
+    var input = document.getElementById("userInput");
+    var li = document.createElement("li"); // creates an element "li"
+
+    //If nothing is entered into input
+      if (input.value === '') {
+       alert("Please enter item!");
+       document.getElementById('li').style.display = "none"; //this makes sure an empty input field does not create an empty li
+      } else { //Adding items to list
+       li.appendChild(document.createTextNode(input.value)); //makes text from input field the li text
+       ul.appendChild(li); //adds li to ul
+       input.value = ""; //Reset text input field
+       /*saveList();*/
+     }
+     //So Far items are being added as list items but no delete button
+
+     //localStorage function
+     function saveList() {
+      localStorage.storedList = document.getElementById("myList").innerHTML;
+    }
+
+     //Need to add a delete button
+  	var dBtn = document.createElement("button");
+  	dBtn.appendChild(document.createTextNode("X"));
+  	li.appendChild(dBtn);
+
+    //Added a delete button to every list item
+    dBtn.addEventListener("click", deleteListItem); //eventlistner for delete button to delete li
+    //delete item function
+    function deleteListItem() {
+      li.classList.add("delete"); //Created a CSS delete class and set it to display none to delete item
+    }
+  }
+
+    //if enter button is used on keyboard to create li instead of addbutton
+    input.addEventListener("keypress", addListAfterKeypress);
+
+    function addListAfterKeypress(event) {
+      if (event.keyCode ===13) { //this now looks to see if you hit "enter"/"return"
+        //the 13 is the enter key's keycode, this could also be display by event.keyCode === 13
+        addItems();
+      }
+    }
+
+    if (localStorage.storedList) {
+
+    }
+</script>
+</body>
+</html>
